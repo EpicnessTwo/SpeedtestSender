@@ -1,15 +1,13 @@
-# Use an official Node.js runtime as base image
-FROM node:16
+FROM node:16-alpine
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the package.json and package-lock.json first, for better caching
-COPY package*.json ./
+COPY package.json package-lock.json ./
 COPY run.js ./
 
-# Install the project's dependencies inside the container
-RUN npm install
+RUN apk add --no-cache --virtual .build-deps \
+    g++ make python3 && \
+    npm install --production && \
+    apk del .build-deps
 
-# Define the command to run the application
 CMD ["node", "run.js"]
