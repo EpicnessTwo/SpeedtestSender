@@ -2,9 +2,6 @@ version: '3'
 
 services:
   speedtest-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
     image: ghcr.io/epicnesstwo/speedtestsender:main
     container_name: speedtest-container
     volumes:
