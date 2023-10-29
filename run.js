@@ -18,12 +18,12 @@ async function runSpeedTest() {
             ping: result.ping.latency,
             download: result.download.bandwidth * 8, // Convert from Bytes to bits
             upload: result.upload.bandwidth * 8, // Convert from Bytes to bits
+            result_id: result.result.id,
             server_id: result.server.id,
             api_token: API_KEY,
         };
 
         console.info('Speedtest Completed! Download Speed: ' + dataToSend.download / 1000000 + ' Mbps, Upload Speed: ' + dataToSend.upload / 1000000 + ' Mbps, Ping: ' + dataToSend.ping + ' ms');
-
         // Send the result to your API
         await sendToApi(dataToSend);
     } catch (error) {
