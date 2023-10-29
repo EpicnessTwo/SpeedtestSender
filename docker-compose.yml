@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  speedtest-app:
+  speedtest-sender:
     image: ghcr.io/epicnesstwo/speedtestsender:main
-    container_name: speedtest-container
+    container_name: sender
     volumes:
      - ./config.json:/app/config.json
