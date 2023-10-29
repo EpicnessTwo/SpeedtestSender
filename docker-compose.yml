@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: speedtest-app
+    image: ghcr.io/epicnesstwo/speedtestsender:main
     container_name: speedtest-container
     volumes:
      - ./config.json:/app/config.json
