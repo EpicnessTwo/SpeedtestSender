@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  speedtest-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: speedtest-app
+    container_name: speedtest-container
+    volumes:
+     - ./config.json:/app/config.json

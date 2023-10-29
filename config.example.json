@@ -1,0 +1,5 @@
+{
+  "API_URL": "http://localhost/submit",
+  "API_KEY": "replace_me_with_an_actual_valid_api_key",
+  "INTERVAL": 30
+}
