@@ -2,8 +2,15 @@ const speedTest = require('speedtest-net');
 const axios = require('axios');
 const fs = require('fs');
 
-const configFile = fs.readFileSync('./config.json');
-const config = JSON.parse(configFile);
+let config;
+
+try {
+    const configFile = fs.readFileSync('./config.json');
+    config = JSON.parse(configFile);
+} catch (error) {
+    console.error('Error reading or parsing the config file:', error);
+    process.exit(1); // Exit with an error code
+}
 
 const API_URL = config.API_URL;
 const API_KEY = config.API_KEY;;
